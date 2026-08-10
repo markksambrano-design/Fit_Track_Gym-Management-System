@@ -1,0 +1,129 @@
+/* Enhanced Toggle Button for Staff Sidebar */
+:root {
+    --primary: #6C5CE7;
+    --primary-light: #A29BFE;
+    --primary-dark: #5649C0;
+    --secondary: #FD79A8;
+    --accent: #00CEC9;
+    --dark: #2D3436;
+    --darker: #1E272E;
+    --light: #F5F6FA;
+    --gray: #B2BEC3;
+    --success: #00B894;
+    --danger: #D63031;
+    --warning: #FDCB6E;
+    --info: #0984E3;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --sidebar-width: 280px;
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+    --glass-effect: rgba(30, 39, 46, 0.9);
+}
+
+/* Enhanced Toggle Button */
+.toggle-btn-container {
+    position: fixed;
+    left: calc(var(--sidebar-width) - 5px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+    transition: var(--transition);
+    pointer-events: auto;
+}
+
+body.sidebar-hidden .toggle-btn-container {
+    left: 0;
+}
+
+.toggle-btn {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
+    color: white;
+    width: 30px;
+    height: 60px;
+    border-radius: 0 15px 15px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    margin: 0;
+    padding: 0;
+    box-shadow: 4px 0 20px rgba(108, 92, 231, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 1101;
+    pointer-events: auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    opacity: 0;
+    transition: var(--transition);
+    border-radius: 0 15px 15px 0;
+}
+
+.toggle-btn:hover {
+    width: 35px;
+    box-shadow: 6px 0 25px rgba(108, 92, 231, 0.4);
+    transform: translateX(2px);
+}
+
+.toggle-btn:hover::before {
+    opacity: 1;
+}
+
+.toggle-btn:active {
+    transform: translateX(1px) scale(0.98);
+}
+
+.toggle-btn i {
+    transition: var(--transition);
+    font-size: 16px;
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-weight: bold;
+}
+
+body.sidebar-hidden .toggle-btn-container .toggle-btn i {
+    transform: rotate(180deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .toggle-btn-container {
+        left: 0;
+    }
+    
+    .toggle-btn {
+        width: 28px;
+        height: 55px;
+        border-radius: 0 12px 12px 0;
+    }
+    
+    .toggle-btn:hover {
+        width: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .toggle-btn {
+        width: 26px;
+        height: 50px;
+        border-radius: 0 10px 10px 0;
+    }
+    
+    .toggle-btn i {
+        font-size: 14px;
+    }
+}

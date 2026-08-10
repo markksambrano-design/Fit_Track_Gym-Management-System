@@ -1,0 +1,320 @@
+/* Salary Page Styles */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+    border: none;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Salary Overview Cards */
+.bg-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.bg-success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;
+}
+
+.bg-info {
+    background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%) !important;
+}
+
+.bg-warning {
+    background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%) !important;
+}
+
+.bg-secondary {
+    background: linear-gradient(135deg, #636e72 0%, #2d3436 100%) !important;
+}
+
+/* Progress Bar */
+.progress {
+    border-radius: 10px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    border-radius: 10px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    border-top: none;
+    font-weight: 600;
+    color: #495057;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.table tfoot th {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+}
+
+/* Earnings table specific styling */
+.table tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.table tbody td:last-child {
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Badge Styles */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.5em 0.75em;
+    border-radius: 6px;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+/* Alert Styles */
+.alert {
+    border: none;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+    color: #2d3436;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    color: white;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+    color: white;
+}
+
+/* Quick Stats Card */
+.card .card-body p {
+    margin-bottom: 0.5rem;
+}
+
+.card .card-body h6 {
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+    
+    .h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Icon styles */
+.fa-2x {
+    opacity: 0.8;
+}
+
+/* Button hover effects */
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom scrollbar for table */
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Payroll Information Section Styles */
+.payroll-info-card {
+    background: #e3f2fd;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.payroll-header {
+    background: #5a5a5a !important;
+    border-radius: 15px 15px 0 0 !important;
+    padding: 1.5rem;
+}
+
+.payroll-header h4 {
+    color: white !important;
+    font-weight: 600;
+    margin: 0;
+}
+
+.payroll-header i {
+    color: white;
+    margin-right: 0.5rem;
+}
+
+.payroll-body {
+    background: #e3f2fd;
+    padding: 2rem;
+}
+
+.payroll-section {
+    margin-bottom: 1.5rem;
+}
+
+.payroll-title {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.payroll-title i {
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.payroll-rates .rate-item,
+.how-it-works .work-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(44, 62, 80, 0.1);
+}
+
+.payroll-rates .rate-item:last-child,
+.how-it-works .work-item:last-child {
+    border-bottom: none;
+}
+
+.rate-label,
+.work-label {
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
+.rate-value,
+.work-value {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #28a745;
+}
+
+.payroll-note {
+    background: #fff3cd;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    border-left: 4px solid #ffc107;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    line-height: 1.5;
+    border: 1px solid #ffeaa7;
+}
+
+.payroll-note i {
+    color: #ffc107;
+}
+
+/* Responsive adjustments for payroll section */
+@media (max-width: 768px) {
+    .payroll-body {
+        padding: 1.5rem;
+    }
+    
+    .payroll-rates .rate-item,
+    .how-it-works .work-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .rate-value,
+    .work-value {
+        font-size: 1rem;
+    }
+}
+
+/* Pay Structure Styles */
+.pay-structure {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pay-tier {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #495057;
+    padding: 2px 0;
+}

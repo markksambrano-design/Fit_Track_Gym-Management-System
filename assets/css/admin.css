@@ -1,0 +1,335 @@
+ :root {
+    --primary: #4e73df;
+    --secondary: #858796;
+    --success: #1cc88a;
+    --info: #36b9cc;
+    --warning: #f6c23e;
+    --danger: #e74a3b;
+    --light: #f8f9fc;
+    --dark: #5a5c69;
+}
+
+body {
+    background-color: #f8f9fc;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #fff;
+    color: #000;
+    transition: all 0.3s;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    min-height: 100vh;
+}
+
+.sidebar-brand {
+    height: 4.375rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    letter-spacing: 0.05rem;
+    z-index: 1;
+    border-bottom: 1px solid #eaecf4;
+}
+
+.sidebar-menu {
+    padding: 1rem 0;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-menu li a:hover {
+    color: var(--primary);
+    background: #f8f9fa;
+}
+
+.sidebar-menu li a.active {
+    color: var(--primary);
+    border-left: 3px solid var(--primary);
+    font-weight: 700;
+}
+
+.sidebar-menu li a i {
+    margin-right: 0.5rem;
+}
+
+/* Main Content */
+.main {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #f8f9fc;
+}
+
+/* Top Navigation */
+.topbar {
+    height: 4.375rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 0.35rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+    padding: 1rem 1.35rem;
+    font-weight: 700;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: #2e59d9;
+    border-color: #2653d4;
+}
+
+/* Table Transparency */
+.table-custom {
+    background-color: transparent !important;
+    font-size: 1rem; /* Larger, more readable font like members table */
+}
+
+.table-custom thead th {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    font-size: 0.9rem; /* Larger header font */
+    padding: 1rem 1.25rem; /* More comfortable padding */
+    font-weight: 600;
+}
+
+.table-custom tbody tr {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.table-custom tbody tr:hover {
+    background-color: transparent !important;
+}
+
+.table-custom tbody td {
+    border: none !important;
+    color: white !important;
+    background-color: transparent !important;
+    padding: 1rem 1.25rem; /* More comfortable cell padding */
+    vertical-align: middle;
+}
+
+/* Attendance specific styles */
+.attendance-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Avatar sizing */
+.avatar-sm {
+    width: 40px; /* Standard size like members table */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-sm img {
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: cover;
+}
+
+.avatar-sm i {
+    font-size: 1.2rem; /* Standard icon size */
+}
+
+/* Badge sizing */
+.badge {
+    font-size: 0.85rem; /* Larger badge text for better readability */
+    padding: 0.4rem 0.8rem; /* More comfortable padding */
+    font-weight: 500;
+}
+
+/* Button sizing */
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+.btn-group-sm .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+/* Time display */
+.time-display {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Status badge */
+.status-badge {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+}
+
+/* Member name */
+.fw-bold {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Stats cards */
+.stats-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-card .fa-2x {
+    font-size: 1.5rem; /* Smaller icons */
+}
+
+.stats-card h5 {
+    font-size: 1.25rem; /* Smaller stats numbers */
+}
+
+.stats-card .small {
+    font-size: 0.75rem;
+}
+
+/* Scanner button */
+.scanner-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.scanner-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    color: white;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state h5 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table-custom {
+        font-size: 0.8rem;
+    }
+    
+    .table-custom thead th {
+        font-size: 0.75rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .table-custom tbody td {
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .avatar-sm {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .avatar-sm img {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .btn-sm {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .table-responsive {
+        font-size: 0.75rem;
+    }
+    
+    .avatar-sm {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .avatar-sm img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .badge {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
