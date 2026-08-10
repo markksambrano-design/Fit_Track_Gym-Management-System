@@ -1,3 +1,38 @@
+-- FitTrack clean installation schema
+-- Safe to re-import after a failed/partial first installation.
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS member_workout_sessions;
+DROP TABLE IF EXISTS workout_plans;
+DROP TABLE IF EXISTS member_monthly_sessions;
+DROP TABLE IF EXISTS feedback;
+DROP TABLE IF EXISTS payroll_history;
+DROP TABLE IF EXISTS nutrition_plans;
+DROP TABLE IF EXISTS equipment;
+DROP TABLE IF EXISTS member_classes;
+DROP TABLE IF EXISTS classes;
+DROP TABLE IF EXISTS training_sessions;
+DROP TABLE IF EXISTS trainers;
+DROP TABLE IF EXISTS bmi_records;
+DROP TABLE IF EXISTS staff_attendance_archive;
+DROP TABLE IF EXISTS member_attendance_archive;
+DROP TABLE IF EXISTS member_attendance;
+DROP TABLE IF EXISTS walk_in_services;
+DROP TABLE IF EXISTS walk_in_archive;
+DROP TABLE IF EXISTS walk_in;
+DROP TABLE IF EXISTS announcement_views;
+DROP TABLE IF EXISTS announcements;
+DROP TABLE IF EXISTS member_payroll;
+DROP TABLE IF EXISTS staff_attendance;
+DROP TABLE IF EXISTS archived_attendance;
+DROP TABLE IF EXISTS attendance_archive;
+DROP TABLE IF EXISTS attendance;
+DROP TABLE IF EXISTS payroll;
+DROP TABLE IF EXISTS staff;
+DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS admins;
+
 CREATE TABLE admins (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -595,4 +630,5 @@ CREATE TABLE IF NOT EXISTS member_workout_sessions (
     INDEX idx_member_monthly (member_id, monthly_session_id),
     INDEX idx_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+SET FOREIGN_KEY_CHECKS = 1;
 -- =====================================================
