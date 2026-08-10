@@ -44,6 +44,7 @@ config.php
 .env
 .env.*
 !.env.example
+includes/db.local.php
 
 # Local-only diagnostics
 __server_probe.php

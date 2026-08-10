@@ -1,11 +1,20 @@
 <?php
-// Production credentials must be configured as environment variables in the
-// hosting dashboard. The fallback values keep the existing XAMPP setup working.
-$host = getenv('DB_HOST') ?: 'localhost';
-$port = getenv('DB_PORT') ?: '3306';
-$user = getenv('DB_USER') ?: 'root';
-$pass = getenv('DB_PASSWORD') ?: '';
-$dbname = getenv('DB_NAME') ?: 'Fit_Track';
+// Production credentials can come from environment variables or from the
+// ignored includes/db.local.php file used by hosts without env-var settings.
+$localConfig = [];
+$localConfigPath = __DIR__ . '/db.local.php';
+if (is_file($localConfigPath)) {
+    $loadedConfig = require $localConfigPath;
+    if (is_array($loadedConfig)) {
+        $localConfig = $loadedConfig;
+    }
+}
+
+$host = getenv('DB_HOST') ?: ($localConfig['host'] ?? 'localhost');
+$port = getenv('DB_PORT') ?: ($localConfig['port'] ?? '3306');
+$user = getenv('DB_USER') ?: ($localConfig['user'] ?? 'root');
+$pass = getenv('DB_PASSWORD') ?: ($localConfig['password'] ?? '');
+$dbname = getenv('DB_NAME') ?: ($localConfig['name'] ?? 'Fit_Track');
 
 // Create PDO connection
 try {

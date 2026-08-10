@@ -38,6 +38,11 @@ DB_PASSWORD=your-strong-password
 
 Do not commit a `.env` file. `.env.example` documents the required variable names only. On ordinary cPanel hosting, ask the provider how PHP environment variables are configured; do not put secrets in a public repository.
 
+For InfinityFree, copy `includes/db.local.example.php` to
+`includes/db.local.php` in the online File Manager, then replace only the
+password placeholder with the current MySQL password. `db.local.php` is
+ignored by Git and must never be uploaded to GitHub.
+
 For the existing XAMPP installation, the application still defaults to `localhost`, port `3306`, user `root`, an empty password, and database `Fit_Track` when variables are absent.
 
 ## 4. Deploy the PHP application
