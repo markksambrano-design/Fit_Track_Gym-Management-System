@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS workout_plans;
 DROP TABLE IF EXISTS member_monthly_sessions;
 DROP TABLE IF EXISTS feedback;
 DROP TABLE IF EXISTS payroll_history;
+DROP TABLE IF EXISTS member_nutrition_logs;
 DROP TABLE IF EXISTS nutrition_plans;
 DROP TABLE IF EXISTS equipment;
 DROP TABLE IF EXISTS member_classes;
@@ -489,9 +490,35 @@ CREATE TABLE IF NOT EXISTS nutrition_plans (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     KEY member_id (member_id),
-    KEY status (status),
-    CONSTRAINT nutrition_plans_ibfk_1 FOREIGN KEY (member_id) REFERENCES members(id) ON DELETE CASCADE,
-    CONSTRAINT nutrition_plans_ibfk_2 FOREIGN KEY (created_by) REFERENCES admins(id) ON DELETE SET NULL
+    KEY created_by (created_by),
+    KEY status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Nutrition records and trainer-assigned meal plans used by the member and staff handlers.
+CREATE TABLE IF NOT EXISTS member_nutrition_logs (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    member_id INT(11) NOT NULL,
+    trainer_id INT(11) DEFAULT NULL,
+    plan_name VARCHAR(100) DEFAULT NULL,
+    log_date DATE NOT NULL,
+    meal_type ENUM('breakfast','lunch','dinner','snack') NOT NULL,
+    food_name VARCHAR(255) NOT NULL,
+    calories DECIMAL(8,2) DEFAULT 0.00,
+    protein DECIMAL(8,2) DEFAULT 0.00,
+    carbs DECIMAL(8,2) DEFAULT 0.00,
+    fat DECIMAL(8,2) DEFAULT 0.00,
+    quantity VARCHAR(100) DEFAULT NULL,
+    notes TEXT DEFAULT NULL,
+    is_plan TINYINT(1) NOT NULL DEFAULT 0,
+    assigned_by INT(11) DEFAULT NULL,
+    assigned_date DATETIME DEFAULT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    KEY idx_member_date (member_id, log_date),
+    KEY idx_trainer (trainer_id),
+    KEY idx_assigned_by (assigned_by),
+    KEY idx_is_plan (is_plan)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Create payroll_history table for staff payroll tracking
@@ -507,14 +534,14 @@ CREATE TABLE IF NOT EXISTS payroll_history (
     payment_date DATE NULL,
     notes TEXT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     KEY staff_id (staff_id),
     KEY period_start (period_start),
     KEY period_end (period_end),
     KEY status (status),
-    KEY payment_date (payment_date),
-    CONSTRAINT payroll_history_ibfk_1 FOREIGN KEY (staff_id) REFERENCES staff(id) ON DELETE CASCADE
+    KEY payment_date (payment_date)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Create feedback table for member feedback system
