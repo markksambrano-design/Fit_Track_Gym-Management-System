@@ -1,7 +1,6 @@
 # GitHub Pages Configuration
 # Exclude README from being processed as the main page
 README
-README.md
 
 # Database files
 *.sql
@@ -49,6 +48,7 @@ includes/db.local.php
 # Local-only diagnostics
 __server_probe.php
 utilities/
+setup-admin.php
 
 # Node modules (if using any build tools)
 node_modules/
